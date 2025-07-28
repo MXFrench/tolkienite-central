@@ -1,10 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --col-text: black;
-  --col-bg: white;
-  --col-links: green;
-  --col-bg-secondary: #ddd;
+  --col-text: var(--color-gray-950);
+  --col-bg: var(--color-gray-200);
+  --col-links: var(--color-purple-500);
+  --col-bg-secondary: var(--color-white);
+  --col-primary: var(--color-blue-500);
+
+  --col-nav-bg: var(--color-purple-600);
+  --col-nav-highlight: var(--color-purple-800);
+  --col-nav-link: var(--color-white);
 }
 
 /* body[data-theme="shire"] {
@@ -16,6 +21,14 @@
   --color-bg: var(--col-bg);
   --color-links: var(--col-links);
   --color-bg-secondary: var(--col-bg-secondary);
+  --color-primary: var(--col-primary);
+
+  --color-nav-bg: var(--col-nav-bg);
+  --color-nav-highlight: var(--col-nav-highlight);
+  --color-nav-link: var(--col-nav-link);
+
+  --container-auto-xl: min(calc(100% - 2.5rem), 80rem);
+  --container-auto-lg: min(calc(100% - 2.5rem), 72rem);
 }
 
 body {
