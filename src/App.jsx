@@ -1,8 +1,15 @@
-import React from 'react'
+import { Route, Routes } from 'react-router'
+import Home from './pages/Home'
+import Navigation from './components/Navigation'
 
 const App = () => {
   return (
-    <div>App</div>
+    <>
+      <Navigation />
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </>
   )
 }
 

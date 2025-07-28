@@ -1,1 +1,23 @@
 @import "tailwindcss";
+
+:root {
+  --col-text: black;
+  --col-bg: white;
+  --col-links: green;
+  --col-bg-secondary: #ddd;
+}
+
+/* body[data-theme="shire"] {
+  --color-accent-1: green;
+} */
+
+@theme {
+  --color-text: var(--col-text);
+  --color-bg: var(--col-bg);
+  --color-links: var(--col-links);
+  --color-bg-secondary: var(--col-bg-secondary);
+}
+
+body {
+  @apply bg-bg text-text;
+}
