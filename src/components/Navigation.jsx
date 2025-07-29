@@ -5,7 +5,7 @@ import { IoClose } from "react-icons/io5";
 import { IoMenu } from "react-icons/io5";
 
 const Navigation = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
     {
@@ -24,9 +24,9 @@ const Navigation = () => {
         >
           <ul className='flex flex-col gap-4 items-center'>
             {navLinks.map(({id, name, path}) => (
-              <li key={id} className='text-2xl sm:text-4xl font-thin p-2 hover:bg-nav-highlight transition cursor-pointer text-nav-link'>
+              <li key={id} className='text-2xl sm:text-4xl font-thin p-4 rounded hover:bg-nav-highlight transition cursor-pointer text-nav-link'>
                 <NavLink to={path}
-                  className={({ isActive }) => isActive && "font-semibold"}
+                  className={({ isActive }) => isActive ? "font-semibold" : undefined}
                 >{name}</NavLink>
               </li>
             ))}
