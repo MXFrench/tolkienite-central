@@ -2,10 +2,13 @@
 
 :root {
   --col-text: var(--color-gray-950);
+  --col-text-lighter: var(--color-gray-600);
   --col-bg: var(--color-gray-200);
   --col-links: var(--color-purple-500);
   --col-bg-secondary: var(--color-white);
   --col-primary: var(--color-blue-500);
+  --col-btn-primary: var(--color-purple-500);
+  --col-btn-text: var(--color-white);
 
   --col-nav-bg: var(--color-purple-600);
   --col-nav-highlight: var(--color-purple-700);
@@ -18,10 +21,13 @@
 
 @theme {
   --color-text: var(--col-text);
+  --color-text-lighter: var(--col-text-lighter);
   --color-bg: var(--col-bg);
   --color-links: var(--col-links);
   --color-bg-secondary: var(--col-bg-secondary);
   --color-primary: var(--col-primary);
+  --color-btn-primary: var(--col-btn-primary);
+  --color-btn-text: var(--col-btn-text);
 
   --color-nav-bg: var(--col-nav-bg);
   --color-nav-highlight: var(--col-nav-highlight);
@@ -29,8 +35,15 @@
 
   --container-auto-xl: min(calc(100% - 2.5rem), 80rem);
   --container-auto-lg: min(calc(100% - 2.5rem), 72rem);
+  --container-auto-md: min(calc(100% - 2.5rem), 64rem);
+
+  --breakpoint-xs: 30rem;
 }
 
 body {
   @apply bg-bg text-text;
+}
+
+.btn {
+  @apply py-2 px-3 rounded cursor-pointer hover:shadow-md/25 transition;
 }
