@@ -1,3 +1,4 @@
+import { movieData } from "./data";
 import { randInt } from "./utilities";
 
 export function getRandomQuotePath () {
@@ -30,8 +31,22 @@ export async function fetchData (path) {
   }
 }
 
-export function getNameById (id, docs) {
+export function getCharacterNameById (id, docs) {
+  if (!id) return null
   const getById = docs.filter(({ _id }) => id === _id);
   const name = getById[0].name;
   return name;
+}
+
+export function getMovieById (id) {
+  if (!id) return null;
+  const movies = [...movieData.lotr, ...movieData.hobbit];
+  const filteredMovies = movies.filter(({ _id }) => _id === id);
+  return filteredMovies;
+}
+
+export function getMovieNameById (id) {
+  if (!id) return null;
+  const filteredMovies = getMovieById(id);
+  return filteredMovies[0]?.name;
 }
