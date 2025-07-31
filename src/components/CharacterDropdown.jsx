@@ -37,11 +37,16 @@ const CharacterDropdown = ({ setVal, curVal}) => {
     setInput(name);
   }
 
+  function handleFocus (e) {
+    setIsOpen(true);
+    setInput("");
+  }
+
   return (
     <div ref={ref} className='relative'>
       <input type="text"
         placeholder='Choose or search name...'
-        onFocus={() => setIsOpen(true)}
+        onFocus={handleFocus}
         onInput={handleInput}
         value={input}
         className="py-2 px-3 border-2 border-primary w-full rounded outline-0 focus:ring-2 focus:ring-primary/50 focus:ring-offset-1 transition cursor-pointer"

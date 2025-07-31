@@ -24,7 +24,7 @@ const QuoteGenerator = () => {
           <button className="btn bg-btn-primary text-btn-text" onClick={() => togglePanel("movie")}>Get Quote By Movie</button>
         </section>
 
-        <QuoteGeneratorPanel panel={panel} val={val} setVal={setVal} />
+        <QuoteGeneratorPanel panel={panel} setPanel={setPanel} val={val} setVal={setVal} />
 
       </section>
     </QuoteProvider>
