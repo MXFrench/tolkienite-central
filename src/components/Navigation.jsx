@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import { pages } from '../pages/Home';
 import { NavLink } from 'react-router';
 import { IoClose } from "react-icons/io5";
 import { IoMenu } from "react-icons/io5";
+import { PAGES } from '../lib/constants';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +13,7 @@ const Navigation = () => {
       name: "Home",
       path: "/",
     },
-    ...pages,
+    ...PAGES,
   ];
 
   return (

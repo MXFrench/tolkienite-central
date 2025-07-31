@@ -8,3 +8,7 @@ export function capitalize(str) {
   const capWords = words.map(word => word.charAt(0).toUpperCase() + word.substring(1));
   return capWords.join(" ");
 }
+
+export function randArr(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}

@@ -1,3 +1,4 @@
+import useLocalCharData from "../hooks/useLocalCharData";
 import { movieData } from "./data";
 import { randInt } from "./utilities";
 
@@ -32,7 +33,7 @@ export async function fetchData (path) {
 }
 
 export function getCharacterNameById (id, docs) {
-  if (!id) return null
+  if (!id || !docs) return null
   const getById = docs.filter(({ _id }) => id === _id);
   const name = getById[0].name;
   return name;

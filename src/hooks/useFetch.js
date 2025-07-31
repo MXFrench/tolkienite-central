@@ -1,14 +1,35 @@
-import useAsync from "./useAsync";
+import { useState, useEffect, useCallback } from "react";
 
 const DEFAULT_OPTIONS = {
   headers: { "Content-Type": "application/json" },
 }
 
 export default function useFetch(url, options = {}, dependencies = []) {
-  return useAsync(() => {
-    return fetch(url, { ...DEFAULT_OPTIONS, ...options }).then(res => {
-      if (res.ok) return res.json();
-      return res.json().then(json => Promise.reject(json));
-    });
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState();
+  const [value, setValue] = useState();
+
+  const fetchData = useCallback(async () => {
+    setLoading(true);
+    setError(undefined);
+    setValue(undefined);
+
+    try {
+      const response = await fetch(url, { ...DEFAULT_OPTIONS, ...options });
+      if (!response.ok) throw new Error(`Response status: ${response.status}`);
+      const data = await response.json();
+      setValue(data);
+    } catch (error) {
+      setError(error);
+      console.error("Something went wrong while fetching data: ", error);
+    }
+
+    setLoading(false);
   }, dependencies);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+  
+  return { loading, error, value };
 }

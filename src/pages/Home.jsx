@@ -1,32 +1,6 @@
 
 import { Link } from 'react-router';
-
-export const pages = [
-  {
-    id: 1,
-    name: "Quote Generator",
-    description: "Get random qutoes by your favorite characters or from your favorite movie!",
-    path: "/quote-generator",
-  },
-  {
-    id: 2,
-    name: "Character Explorer",
-    description: "Browse the vast population of Middle Earth to discover new characters or explore old ones.",
-    path: "/character-explorer",
-  },
-  {
-    id: 3,
-    name: "Movie Dashboard",
-    description: "View all movies and compare stats for The Lord of the Rings trilogy and The Hobbit trilogy.",
-    path: "/movie-dashboard",
-  },
-  {
-    id: 4,
-    name: "Who Said It?",
-    description: "Test your Middle Earth knowledge by guessing the character by a random quote.",
-    path: "/who-said-it",
-  },
-];
+import { PAGES } from '../lib/constants';
 
 const Home = () => {
   return (
@@ -37,7 +11,7 @@ const Home = () => {
       </p>
 
       <div className="grid sm:grid-cols-2 gap-8">
-        {pages.map(({id, name, description, path}) => (
+        {PAGES.map(({id, name, description, path}) => (
           <div className="bg-bg-secondary p-4 xl:p-8 space-y-4" key={id}>
             <h3 className='text-2xl xl:text-3xl'>{name}</h3>
             <p className='text-lg xl:text-xl italic'>{description}</p>
