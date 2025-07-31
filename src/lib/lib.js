@@ -1,4 +1,3 @@
-import useLocalCharData from "../hooks/useLocalCharData";
 import { movieData } from "./data";
 import { randInt } from "./utilities";
 
