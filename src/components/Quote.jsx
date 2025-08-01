@@ -23,7 +23,7 @@ const Quote = () => {
           ) : (
             <>
               <h2 className="text-xl xs:text-2xl md:text-4xl xl:text-5xl 2xl:text-6xl text-balance text-center italic md:font-light leading-snug">{quote?.dialog}</h2>
-              <p className="text-center text-lg font-bold text-text-lighter/50">
+              <p className="text-center text-lg font-bold text-text-lighter">
                 <a href="#">{character}</a>, <a href="#">{movie}</a>
                 {/* Later, link to character wiki pages and movie title and page */}
               </p>

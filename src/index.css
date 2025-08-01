@@ -2,10 +2,11 @@
 
 :root {
   --col-text: var(--color-gray-950);
-  --col-text-lighter: var(--color-gray-600);
+  --col-text-lighter: var(--color-gray-400);
   --col-bg: var(--color-gray-200);
   --col-links: var(--color-purple-500);
   --col-bg-secondary: var(--color-white);
+  --col-borders: var(--color-gray-300);
   --col-primary: var(--color-blue-500);
   --col-btn-primary: var(--color-purple-500);
   --col-btn-text: var(--color-white);
@@ -25,6 +26,7 @@
   --color-bg: var(--col-bg);
   --color-links: var(--col-links);
   --color-bg-secondary: var(--col-bg-secondary);
+  --color-borders: var(--col-borders);
   --color-primary: var(--col-primary);
   --color-btn-primary: var(--col-btn-primary);
   --color-btn-text: var(--col-btn-text);

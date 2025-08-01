@@ -4,6 +4,7 @@ export function randInt(min, max) {
 }
 
 export function capitalize(str) {
+  if (!str) return null;
   const words = str.toLowerCase().split(" ");
   const capWords = words.map(word => word.charAt(0).toUpperCase() + word.substring(1));
   return capWords.join(" ");
