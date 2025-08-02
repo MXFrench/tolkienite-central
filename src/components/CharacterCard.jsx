@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { capitalize } from "../lib/utilities";
+import { SEARCHBY } from "./CharacterSearch";
+import { useSearchParams } from "react-router";
 
 const CharacterCard = ({ info }) => {
-  
+  const [searchParams, setSearchParams] = useSearchParams();
   const [items, setItems] = useState([]);
   useEffect(() => {
     const newItems = [];
@@ -26,14 +28,20 @@ const CharacterCard = ({ info }) => {
       <a className="text-sm text-primary italic truncate" target="_blank" href={info.wikiUrl}>{info.wikiUrl}</a>
 
       {items.map(({key, val}) => (
-        <p className='grid grid-cols-[1fr_2fr] gap-2 p-2 bg-primary/5 border border-primary/15 rounded' key={key}>
-          <span className="font-bold">{capitalize(key)}:</span>
+        <div className='grid grid-cols-[1fr_2fr] gap-2 max-xs:grid-cols-[1fr_3fr] p-2 bg-primary/5 border border-primary/15 rounded' key={key}>
+          <p className="font-bold">{capitalize(key)}:</p>
           {key === "race" || key === "realm" ? (
-            <a href="#" className="text-balance text-primary">{val}</a>
+            <div className="flex gap-2 flex-wrap">
+              {val.split(",").map(v => (
+                <button className="text-balance text-primary cursor-pointer"
+                  onClick={() => setSearchParams({ searchBy: key === "race" ? SEARCHBY.RACE : SEARCHBY.REALM, value: v })}
+                >{v}</button>
+              ))}
+            </div>
           ) : (
-            <span className="text-balance">{val}</span>
+            <p className="text-balance">{val}</p>
           )}
-        </p>
+        </div>
       ))}
       
     </div>

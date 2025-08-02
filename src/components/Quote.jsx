@@ -1,6 +1,9 @@
+import { Link } from "react-router";
 import { useQuote } from "../hooks/QuoteContext";
 import useLocalCharData from "../hooks/useLocalCharData";
 import { getCharacterNameById, getMovieNameById } from "../lib/lib";
+import { PATHS } from "../lib/constants";
+import { SEARCHBY } from "./CharacterSearch";
 
 const Quote = () => {
   const [quote, loading, error] = useQuote();
@@ -23,9 +26,12 @@ const Quote = () => {
           ) : (
             <>
               <h2 className="text-xl xs:text-2xl md:text-4xl xl:text-5xl 2xl:text-6xl text-balance text-center italic md:font-light leading-snug">{quote?.dialog}</h2>
-              <p className="text-center text-lg font-bold text-text-lighter">
-                <a href="#">{character}</a>, <a href="#">{movie}</a>
-                {/* Later, link to character wiki pages and movie title and page */}
+              <p className="text-lg font-bold flex gap-2 justify-center">
+                <Link className="text-text-lighter/75 hover:text-text-lighter transition" to={{
+                  pathname: PATHS.characterExplorer,
+                  search: `?searchBy=${SEARCHBY.NAME}&value=${character}`
+                }}>{character},</Link>
+                <a className="text-text-lighter/75 hover:text-text-lighter transition" href="#">{movie}</a>
               </p>
           </>
           )}

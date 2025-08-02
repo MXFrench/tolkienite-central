@@ -50,3 +50,13 @@ export function getMovieNameById (id) {
   const filteredMovies = getMovieById(id);
   return filteredMovies[0]?.name;
 }
+
+export function searchCharacters (docs, searchBy, searchTerm) {
+  if (!docs) [];
+
+  return docs.filter(character => {
+    const key = character[searchBy?.toLowerCase()]?.toLowerCase();
+    const val = searchTerm?.toLowerCase();
+    return key?.includes(val);
+  });
+}

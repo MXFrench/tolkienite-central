@@ -11,5 +11,11 @@ export function capitalize(str) {
 }
 
 export function randArr(arr) {
+  if (!arr) return null;
   return arr[Math.floor(Math.random() * arr.length)];
+}
+
+export function noSpace(str) {
+  if (!str) return null;
+  return str.split(" ").join("");
 }
