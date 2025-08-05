@@ -49,3 +49,19 @@ body {
 .btn {
   @apply py-2 px-3 rounded cursor-pointer hover:shadow-md/25 transition;
 }
+
+.progress-bar {
+  @apply w-full h-2 rounded-full bg-primary/15;
+  background-image: linear-gradient(var(--color-primary), var(--color-primary));
+  background-repeat: no-repeat;
+  animation: progress 2s ease-in-out;
+}
+
+@keyframes progress {
+  0% {
+    background-size: 0% 100%;
+  }
+  100% {
+    background-size: 100% 100%;
+  }
+}

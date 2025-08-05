@@ -1,5 +1,5 @@
 import { movieData } from "./data";
-import { randInt } from "./utilities";
+import { randArr, randInt } from "./utilities";
 
 export function getRandomQuotePath () {
   const totalNum = 2384;
@@ -59,4 +59,15 @@ export function searchCharacters (docs, searchBy, searchTerm) {
     const val = searchTerm?.toLowerCase();
     return key?.includes(val);
   });
+}
+
+export function randomDoc (docs, exclude = []) {
+  if (!docs) return;
+  const charDocs = docs.filter(doc => !exclude.includes(doc._id));
+  return randArr(charDocs);
+}
+
+export function getDocById (docs, id) {
+  if (!docs || !id) return;
+  return docs.filter(doc => doc._id === id)[0];
 }

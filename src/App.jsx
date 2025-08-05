@@ -5,6 +5,7 @@ import QuoteGenerator from './pages/QuoteGenerator'
 import { PATHS } from "./lib/constants"
 import CharacterExplorer from './pages/CharacterExplorer'
 import MovieDashboard from './pages/MovieDashboard'
+import WhoSaidIt from './pages/WhoSaidIt'
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Route path={PATHS.quoteGenerator} element={<QuoteGenerator />} />
         <Route path={PATHS.characterExplorer} element={<CharacterExplorer />} />
         <Route path={PATHS.movieDashboard} element={<MovieDashboard />} />
+        <Route path={PATHS.whoSaidIt} element={<WhoSaidIt />} />
       </Routes>
     </>
   )
