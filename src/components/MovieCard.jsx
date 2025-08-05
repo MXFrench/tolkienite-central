@@ -3,17 +3,22 @@ import { FaImdb } from "react-icons/fa";
 import { SiRottentomatoes } from "react-icons/si";
 import { MdMovieCreation } from "react-icons/md";
 import Modal from "./Modal";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import useClickOutside from "../hooks/useClickOutside";
 
 const MovieCard = ({ movie }) => {
   const [open, setOpen] = useState(false);
+  const [hovered, setHovered] = useState(false);
+  const movieCardRef = useRef();
+  useClickOutside(movieCardRef, () => setHovered(false));
 
   return (
     <>
-      <div className="relative overflow-hidden rounded-md hover:shadow-2xl transition group">
-        <img className="cursor-pointer transition group-hover:scale-105" src={movie?.coverUrl} alt="movie-cover" />
+      <div className="relative overflow-hidden rounded-md hover:shadow-2xl transition group" ref={movieCardRef}>
+        <img className="cursor-pointer transition group-hover:scale-105" src={movie?.coverUrl} alt="movie-cover"
+        onClick={() => setHovered(true)} />
 
-        <div className="absolute w-full h-full inset-0 transition translate-y-[75%] group-hover:translate-0 opacity-0 group-hover:opacity-100">
+        <div className={`absolute w-full h-full inset-0 transition translate-y-[75%] opacity-0 group-hover:translate-0 group-hover:opacity-100 ${hovered && "translate-0! opacity-100!"}`}>
           <div className="bg-bg-secondary/75 backdrop-blur-xs size-full p-6 grid place-content-center">
             <p className="text-text/75 text-sm">{movie?.series}</p>
             <h3 className="text-2xl font-bold">{movie?.name}</h3>
