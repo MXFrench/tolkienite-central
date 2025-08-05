@@ -4,6 +4,7 @@ import Navigation from './components/Navigation'
 import QuoteGenerator from './pages/QuoteGenerator'
 import { PATHS } from "./lib/constants"
 import CharacterExplorer from './pages/CharacterExplorer'
+import MovieDashboard from './pages/MovieDashboard'
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Route path={PATHS.home} element={<Home />} />
         <Route path={PATHS.quoteGenerator} element={<QuoteGenerator />} />
         <Route path={PATHS.characterExplorer} element={<CharacterExplorer />} />
+        <Route path={PATHS.movieDashboard} element={<MovieDashboard />} />
       </Routes>
     </>
   )
